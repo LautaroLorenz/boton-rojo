@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getChallenge } from './models/challenges/challenges.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'boton-rojo';
+  randomChallenge: string | null = null;
+
+  challenge(difficult: 'easy' | 'hard'): void {
+    this.randomChallenge = getChallenge(difficult);
+  }
+  clearChallange(): void {
+    this.randomChallenge = null;
+  }
 }
